@@ -25,7 +25,7 @@ var urlsToCache = [
 
 self.addEventListener('install', function (event) {
 	// perform install steps
-	event.waitUnit(
+	event.waitUntil(
 		caches.open(CACHE_NAME)
 			.then(function (cache) {
 				console.log('opened cache');
@@ -36,7 +36,7 @@ self.addEventListener('install', function (event) {
 
 
 self.addEventListener('activate', event => {
-	event.waitUnitl(self.clients.claim());
+	event.waitUntil(self.clients.claim());
 });
 
 self.addEventListener('fetch', event => {
